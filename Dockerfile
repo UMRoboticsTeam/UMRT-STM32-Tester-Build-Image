@@ -34,4 +34,4 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     /tools/execution_tracer
     
 ENV PATH="/opt/renode:${PATH}"
-CMD ["renode", "--disable-gui"]
+ENTRYPOINT ["renode"]
