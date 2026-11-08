@@ -8,7 +8,8 @@ RUN echo Acquire::Queue-Mode "host"; >> /etc/apt/apt.conf.d/99parallel && \
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update && apt-get install -y --no-install-recommends -o Dpkg::Options::="--force-overwrite" \
-      git xz-utils \
+      cmake libc6-dev libnewlib-arm-none-eabi \
+      git xz-utils  \
       libicu-dev  screen uml-utilities policykit-1 \
       python3 python3-pip python3-dev pipx lcov \
       gcc-arm-none-eabi gdb-multiarch build-essential make && \
@@ -34,4 +35,4 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     /tools/execution_tracer
     
 ENV PATH="/opt/renode:${PATH}"
-ENTRYPOINT ["renode"]
+CMD ["renode"]
