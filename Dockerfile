@@ -9,7 +9,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update && apt-get install -y --no-install-recommends -o Dpkg::Options::="--force-overwrite" \
       cmake libc6-dev libnewlib-arm-none-eabi \
-      git xz-utils  \
+      git xz-utils gh \
       libicu-dev  screen uml-utilities policykit-1 \
       python3 python3-pip python3-dev pipx lcov \
       gcc-arm-none-eabi gdb-multiarch build-essential make && \
